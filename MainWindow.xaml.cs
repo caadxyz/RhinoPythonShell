@@ -67,6 +67,13 @@ namespace RhinoPythonShell
 
         void Console_ConsoleInitialized(object sender, EventArgs e)
         {
+            string assemblyLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string assemblyPath = System.IO.Path.GetDirectoryName(assemblyLocation);
+
+
+            ICollection<string> paths = console.Pad.Console.ScriptScope.Engine.GetSearchPaths();
+            paths.Add(assemblyPath);
+            console.Pad.Console.ScriptScope.Engine.SetSearchPaths(paths);
             string startupScipt = "import IronPythonConsole";
             ScriptSource scriptSource = console.Pad.Console.ScriptScope.Engine.CreateScriptSourceFromString(startupScipt, SourceCodeKind.Statements);
             try
@@ -74,10 +81,10 @@ namespace RhinoPythonShell
                 scriptSource.Execute();
             }
             catch { }
+            /*
             double[] test = new double[] { 1.2, 4.6 };
             console.Pad.Console.ScriptScope.SetVariable("test", test);
-            //_rhinoCore = new Rhino.Runtime.InProcess.RhinoCore(new string[] { "-appmode" }, Rhino.Runtime.InProcess.WindowStyle.Normal, null);
-
+            */
         }
 
         void MainWindow_Initialized(object sender, EventArgs e)
