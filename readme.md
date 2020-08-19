@@ -19,7 +19,9 @@ writing your Rhino.python script.
 
 ## Installation
 
+unzip `RhinoPythonShell.zip` to rhino6 pluginin folder
+
 ## Contribute
 
-- Issue Tracker: 
-- Source Code: 
+- Issue Tracker:  https://github.com/caadxyz/RhinoPythonShell/issues
+- Source Code: https://github.com/caadxyz/RhinoPythonShell
