@@ -1,5 +1,7 @@
 ﻿# RhinoPythonShell
 
+![sample](sample.png)
+
 inspired by [RevitPythonShell](https://github.com/architecture-building-systems/revitpythonshell)
 
 The RhinoPythonShell adds an IronPython interpreter to  Rhino3d. 
