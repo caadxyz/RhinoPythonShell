@@ -1,21 +1,26 @@
 #coding=utf-8
+
 import clr
-import sys
-RhinoSystem = "C:\\Program Files\\Rhino 6\\System\\"
-RhinoPlugin = "C:\\Program Files\\Rhino 6\\Plug-ins\\"
-clr.AddReferenceToFileAndPath(RhinoSystem + "RhinoCommon.dll")
+clr.AddReference("RhinoCommon")
 clr.AddReference("Eto")
 clr.AddReference("Eto.Wpf")
 clr.AddReference("System.Windows.Forms")
 clr.AddReference("System.Drawing")
-sys.path.append("C:\\Program Files\\Rhino 6\\Plug-ins\\IronPython\\Lib\\")
-sys.path.append("C:\\Users\\mahai\\AppData\\Roaming\\McNeel\\Rhinoceros\\6.0\\Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib\\")
 
+# init sys.path
 import Rhino
-import scriptcontext
-scriptcontext.doc = Rhino.RhinoDoc.ActiveDoc
+import sys
+sys.path.append(Rhino.ApplicationSettings.FileSettings.InstallFolder.FullName + "Plug-ins\\IronPython\\Lib\\")
+sys.path.append(Rhino.ApplicationSettings.FileSettings.GetDataFolder(True) +
+                "Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib\\")
 
-# todo 这部分为了与官方的RhinoPython.Host兼容
+### init scriptcontext
+# the offical Rhino.Python.Host module can not working in this environment.
+# reimplement Rhino.Python.Host.Coerce3dPointFromEnumerables function.
 import RhinoPython.Host
 
+# the offical scriptcontext.doc can not working in this environment.
+# assignment Rhino.RhinoDoc.ActiveDoc to scriptcontext.doc
+import scriptcontext
+scriptcontext.doc = Rhino.RhinoDoc.ActiveDoc
 
