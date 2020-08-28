@@ -2,11 +2,14 @@
 
 ![sample](sample.png)
 
+The RhinoPythonShell is the one of answer for where is the python **REPL** environment for Rhino3d?
 
-The RhinoPythonShell adds an IronPython interpreter to  Rhino3d. 
+This RHinoPlugin adds an IronPython interpreter to  Rhino3d. 
 
 The RhinoPythonShell lets you to write scripts for Rhino3d in Python. But even better, it provides you with an
-interactive shell that lets you see the results of your code *as you type it*. This is great for exploring the [rhinscriptsyntax](https://developer.rhino3d.com/api/RhinoScriptSyntax/), scriptcontext, [RhinoCommon](https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm) API while 
+interactive shell that lets you see the results of your code *as you type it*. 
+
+This is great for exploring the [rhinscriptsyntax](https://developer.rhino3d.com/api/RhinoScriptSyntax/), scriptcontext, [RhinoCommon](https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm) API while 
 writing your Rhino.python script. 
 
 inspired by RevitPythonShell.
